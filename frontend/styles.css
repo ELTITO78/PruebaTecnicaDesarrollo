@@ -1,0 +1,89 @@
+:root {
+  --bg: #f4f5f7;
+  --card: #fff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --accent: #e3350d;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: #fff;
+}
+
+h1 { margin: 0; font-size: 1.5rem; }
+
+form { display: flex; gap: .5rem; }
+
+input, select, button {
+  font: inherit;
+  padding: .5rem .75rem;
+  border: 1px solid #d1d5db;
+  border-radius: .5rem;
+}
+
+main { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+
+#status { text-align: center; color: var(--muted); }
+#status.error { color: var(--accent); font-weight: 600; }
+#status.loading::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: .5rem;
+  vertical-align: middle;
+  border: 2px solid var(--muted);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: var(--card);
+  border-radius: .75rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 / .1);
+}
+
+.card h2 { margin: .25rem 0; font-size: 1.1rem; text-transform: capitalize; }
+.id { color: var(--muted); font-size: .85rem; }
+.types { display: flex; gap: .25rem; }
+
+.type {
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  background: #e5e7eb;
+  font-size: .8rem;
+  text-transform: capitalize;
+}
+
+#pager { display: flex; gap: 1rem; align-items: center; justify-content: center; margin-top: 1.5rem; }
+button { cursor: pointer; background: var(--card); }
+button:disabled { cursor: not-allowed; opacity: .5; }

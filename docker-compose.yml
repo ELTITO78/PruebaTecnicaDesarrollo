@@ -1,0 +1,9 @@
+services:
+  pokedex:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      POKEDEX_MAX_CONCURRENCY: 10
+      POKEDEX_CACHE_TTL: 3600
+    restart: unless-stopped

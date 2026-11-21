@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Pokédex</h1>
+    <form id="filters" role="search">
+      <input id="name" type="search" placeholder="Buscar por nombre" autocomplete="off" maxlength="50" aria-label="Buscar por nombre">
+      <select id="type" aria-label="Filtrar por tipo">
+        <option value="">Todos los tipos</option>
+      </select>
+    </form>
+  </header>
+  <main>
+    <p id="status" role="status" aria-live="polite"></p>
+    <ul id="grid"></ul>
+    <nav id="pager" aria-label="Paginación" hidden>
+      <button id="prev" type="button">Anterior</button>
+      <span id="page-info"></span>
+      <button id="next" type="button">Siguiente</button>
+    </nav>
+  </main>
+  <template id="card">
+    <li class="card">
+      <img loading="lazy" width="120" height="120" alt="">
+      <span class="id"></span>
+      <h2></h2>
+      <div class="types"></div>
+    </li>
+  </template>
+</body>
+</html>
